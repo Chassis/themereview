@@ -1,4 +1,6 @@
-(Currently in beta as I need to submit a PR to https://github.com/rmccue/puppet-wp)
+#Currently Work In Progress
+
+This extension is currently still under development. To get this extenion to work you'll need to [modify puppet-wp](https://github.com/Chassis/themereview/issues/2) then if it's a fresh install you'll need to run `vagrant up` and then `vagrant provision`.
 
 # Theme Review
 A [Chassis](https://github.com/Chassis/Chassis) extension to install and configure your Chassis WP install for [WordPress Theme Reviews](https://make.wordpress.org/themes/about-old/how-to-join-wptrt/).
