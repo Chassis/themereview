@@ -108,5 +108,6 @@ class themereview (
     wp::command { "import":
         location => '/vagrant/wp',
         command => "import $path/theme-unit-test-data.xml --authors=create",
+        require => Wp::Plugin['wordpress-importer']
 	}
 }
