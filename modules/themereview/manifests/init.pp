@@ -80,25 +80,29 @@ class themereview (
     location => '/vagrant/wp',
     require  => Class['wp'],
   }
-  wp::option { 'medium_size_h':
-    ensure   => absent,
-    location => '/vagrant/wp',
+  exec { "/usr/bin/wp option delete medium_size_h":
+    onlyif => "/usr/bin/wp option get medium_size_h",
     require  => Class['wp'],
+    user => 'www-data',
+    cwd => '/vagrant/wp',
   }
-  wp::option { 'medium_size_w':
-    ensure   => absent,
-    location => '/vagrant/wp',
+  exec { "/usr/bin/wp option delete medium_size_w":
+    onlyif => "/usr/bin/wp option get medium_size_w",
     require  => Class['wp'],
+    user => 'www-data',
+    cwd => '/vagrant/wp',
   }
-  wp::option { 'large_size_h':
-    ensure   => absent,
-    location => '/vagrant/wp',
+  exec { "/usr/bin/wp option delete large_size_h":
+    onlyif => "/usr/bin/wp option get large_size_h",
     require  => Class['wp'],
+    user => 'www-data',
+    cwd => '/vagrant/wp',
   }
-  wp::option { 'large_size_w':
-    ensure   => absent,
-    location => '/vagrant/wp',
+  exec { "/usr/bin/wp option delete large_size_w":
+    onlyif => "/usr/bin/wp option get large_size_w",
     require  => Class['wp'],
+    user => 'www-data',
+    cwd => '/vagrant/wp',
   }
   wp::plugin { 'wordpress-importer':
     ensure   => enabled,
