@@ -1,14 +1,14 @@
 class themereview (
-  $path = "/vagrant/extensions/themereview"
+  $path = '/vagrant/extensions/themereview'
 ) {
-  file { "/vagrant/content":
-    ensure => "directory",
+  file { '/vagrant/content':
+    ensure => 'directory',
   }
-  file { "/vagrant/content/themes":
-    ensure => "directory",
+  file { '/vagrant/content/themes':
+    ensure => 'directory',
   }
-  file { "/vagrant/content/plugins":
-    ensure => "directory",
+  file { '/vagrant/content/plugins':
+    ensure => 'directory',
   }
   wp::plugin { 'theme-check':
     ensure   => enabled,
@@ -58,48 +58,48 @@ class themereview (
   }
   wp::option { 'posts_per_page':
     ensure   => equal,
-    value    => "5",
+    value    => '5',
     location => '/vagrant/wp',
     require  => Class['wp'],
   }
   wp::option { 'thread_comments_depth':
     ensure   => equal,
-    value    => "3",
+    value    => '3',
     location => '/vagrant/wp',
     require  => Class['wp'],
   }
   wp::option { 'page_comments':
     ensure   => equal,
-    value    => "1",
+    value    => '1',
     location => '/vagrant/wp',
     require  => Class['wp'],
   }
   wp::option { 'comments_per_page':
     ensure   => equal,
-    value    => "5",
+    value    => '5',
     location => '/vagrant/wp',
     require  => Class['wp'],
   }
-  exec { "/usr/bin/wp option delete medium_size_h":
-    onlyif  => "/usr/bin/wp option get medium_size_h",
+  exec { '/usr/bin/wp option delete medium_size_h':
+    onlyif  => '/usr/bin/wp option get medium_size_h',
     require => Class['wp'],
     user    => 'www-data',
     cwd     => '/vagrant/wp',
   }
-  exec { "/usr/bin/wp option delete medium_size_w":
-    onlyif  => "/usr/bin/wp option get medium_size_w",
+  exec { '/usr/bin/wp option delete medium_size_w':
+    onlyif  => '/usr/bin/wp option get medium_size_w',
     require => Class['wp'],
     user    => 'www-data',
     cwd     => '/vagrant/wp',
   }
-  exec { "/usr/bin/wp option delete large_size_h":
-    onlyif  => "/usr/bin/wp option get large_size_h",
+  exec { '/usr/bin/wp option delete large_size_h':
+    onlyif  => '/usr/bin/wp option get large_size_h',
     require => Class['wp'],
     user    => 'www-data',
     cwd     => '/vagrant/wp',
   }
-  exec { "/usr/bin/wp option delete large_size_w":
-    onlyif  => "/usr/bin/wp option get large_size_w",
+  exec { '/usr/bin/wp option delete large_size_w':
+    onlyif  => '/usr/bin/wp option get large_size_w',
     require => Class['wp'],
     user    => 'www-data',
     cwd     => '/vagrant/wp',
@@ -109,7 +109,7 @@ class themereview (
     location => '/vagrant/wp',
     require  => Class['wp'],
   }
-  wp::command { "import":
+  wp::command { 'import':
     location => '/vagrant/wp',
     command  => "import $path/theme-unit-test-data.xml --authors=create",
     require  => Wp::Plugin['wordpress-importer']
