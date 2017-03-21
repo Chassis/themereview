@@ -1,3 +1,4 @@
+#A Chassis extension that gets your WordPress install setup for WordPress Theme Reviews
 class themereview (
   $path = '/vagrant/extensions/themereview'
 ) {
